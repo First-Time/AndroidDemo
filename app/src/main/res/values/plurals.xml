@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="orange">
+        <item quantity="zero">Have no orange</item>
+        <item quantity="one">Have an orange</item>
+        <item quantity="two">Have two oranges</item>
+        <item quantity="few">Have few oranges</item>
+        <item quantity="many">Have many oranges</item>
+        <item quantity="other">Have %s oranges</item>
+    </plurals>
+</resources>
