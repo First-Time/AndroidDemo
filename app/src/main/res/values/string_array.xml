@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="oranges">
+        <item>orange1</item>
+        <item>orange2</item>
+        <item>orange3</item>
+        <item>orange4</item>
+        <item>orange5</item>
+        <item>orange6</item>
+        <item>orange7</item>
+        <item>orange8</item>
+        <item>orange9</item>
+        <item>orange10</item>
+    </string-array>
+</resources>

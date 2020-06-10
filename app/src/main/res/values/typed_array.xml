@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="typed_array">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5.6f</item>
+        <item>6.5</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>orange1</item>
+        <item>orange2</item>
+        <item>orange3</item>
+        <item>orange4</item>
+        <item>orange5</item>
+        <item>orange6</item>
+        <item>orange7</item>
+        <item>orange8</item>
+        <item>orange9</item>
+        <item>orange10</item>
+    </array>
+</resources>
