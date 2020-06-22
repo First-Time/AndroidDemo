@@ -6,6 +6,51 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorControlNormal">#0000ff</item>
+        <item name="colorControlHighlight">#00ff00</item>
+        <item name="colorControlActivated">#ff0000</item>
+        <item name="test_attr">我来自theme中的test_attr</item>
+    </style>
+
+    <style name="Custom" />
+
+    <style name="Custom.EditText">
+        <item name="colorControlNormal">#0000ff</item>
+        <item name="colorControlHighlight">#00ff00</item>
+        <item name="colorControlActivated">#ff0000</item>
+    </style>
+
+    <style name="Custom.MyTheme" parent="AppTheme">
+        <item name="android:textColor">#f00</item>
+        <item name="android:textSize">20sp</item>
+        <item name="test_attr">w22w</item>
+        <item name="attr_defStyle">@style/style_attr_defStyleAttr</item>
+        <item name="text1">text1-declare in Theme</item>
+        <item name="text2">text2-declare in Theme</item>
+        <item name="text3">text3-declare in Theme</item>
+        <item name="text4">text4-declare in Theme</item>
+        <item name="text5">text5-declare in Theme</item>
+    </style>
+
+    <!--用来表示 defStyleRes 这个属性的值-->
+    <style name="style_defStyleRes">
+        <item name="text1">text1-declare in style_defStyleRes</item>
+        <item name="text2">text2-declare in style_defStyleRes</item>
+        <item name="text3">text3-declare in style_defStyleRes</item>
+        <item name="text4">text4-declare in style_defStyleRes</item>
+    </style>
+
+    <!--用来表示 attr_defStyle 这个属性的值-->
+    <style name="style_attr_defStyleAttr">
+        <item name="text1">text1-declare in style_attr_defStyleAttr</item>
+        <item name="text2">text2-declare in style_attr_defStyleAttr</item>
+        <item name="text3">text3-declare in style_attr_defStyleAttr</item>
+    </style>
+
+    <!--直接在布局中的style中使用-->
+    <style name="style_MyViewStyle">
+        <item name="text1">text1-declare in style_MyViewStyle</item>
+        <item name="text2">text2-declare in style_MyViewStyle</item>
     </style>
 
 </resources>

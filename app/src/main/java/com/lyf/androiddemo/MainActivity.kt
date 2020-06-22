@@ -5,6 +5,8 @@ import android.os.Build
 import android.os.Bundle
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.lyf.androiddemo.custom.MyTextViewActivity
+import com.lyf.androiddemo.edittextstyle.EditTextStyleActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -29,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         textView3.text = text3
 
         val stringArray = resources.getStringArray(R.array.oranges)
+//        val stringArray = resources.getTextArray(R.array.oranges)
         for (str in stringArray) {
             println(str)
         }
@@ -59,5 +62,14 @@ class MainActivity : AppCompatActivity() {
         textView0.setOnClickListener {
             startActivity(Intent(this@MainActivity, SecondActivity::class.java))
         }
+
+        textView4.setOnClickListener {
+            startActivity(Intent(this@MainActivity, EditTextStyleActivity::class.java))
+        }
+
+        textView5.setOnClickListener {
+            startActivity(Intent(this@MainActivity, MyTextViewActivity::class.java))
+        }
+
     }
 }
