@@ -9,9 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".eventdispatch.EventDispatchActivity"></activity>
         <activity
             android:name=".custom.MyTextViewActivity"
-            android:theme="@style/Custom.MyTheme"></activity>
+            android:theme="@style/Custom.MyTheme" />
         <activity android:name=".edittextstyle.EditTextStyleActivity" />
         <activity android:name=".SecondActivity" />
         <activity android:name=".MainActivity">

@@ -7,9 +7,15 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.lyf.androiddemo.custom.MyTextViewActivity
 import com.lyf.androiddemo.edittextstyle.EditTextStyleActivity
+import com.lyf.androiddemo.eventdispatch.EventDispatchActivity
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.*
+import kotlin.coroutines.CoroutineContext
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), CoroutineScope {
+
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,5 +77,53 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, MyTextViewActivity::class.java))
         }
 
+        textView6.setOnClickListener {
+            startActivity(Intent(this@MainActivity, EventDispatchActivity::class.java))
+        }
+
+        launch {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                asContextElement()
+            }
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    suspend fun asContextElement() {
+        val myThreadLocal = ThreadLocal<String?>()
+        println("1" + myThreadLocal.get()) // Prints "null"
+        launch(Dispatchers.Default + myThreadLocal.asContextElement(value = "foo")) {
+            println("2" + myThreadLocal.get()) // Prints "foo"
+            withContext(Dispatchers.Main) {
+                println("3" + myThreadLocal.get()) // Prints "foo", but it's on UI thread
+            }
+        }
+        println("4" + myThreadLocal.get()) // Prints "null"
+
+//        The context element does not track modifications of the thread-local variable, for example:
+        myThreadLocal.set("main")
+        withContext(Dispatchers.Main) {
+            println("5" + myThreadLocal.get()) // Prints "main"
+            myThreadLocal.set("UI")
+        }
+        println("6" + myThreadLocal.get()) // Prints "main", not "UI"。这里输出了 UI，不知道为啥呀
+
+//        Use withContext to update the corresponding thread-local variable to a different value, for example:
+        withContext(myThreadLocal.asContextElement("foo")) {
+            println("7" + myThreadLocal.get()) // Prints "foo"
+        }
+
+//        Accessing the thread-local without corresponding context element leads to undefined value:
+        val tl = ThreadLocal.withInitial { "initial" }
+
+        runBlocking {
+            println("8" + tl.get()) // Will print "initial"
+            // Change context
+            withContext(tl.asContextElement("modified")) {
+                println("9" + tl.get()) // Will print "modified"
+            }
+            // Context is changed again
+            println("10" + tl.get()) // <- WARN: can print either "modified" or "initial"
+        }
     }
 }

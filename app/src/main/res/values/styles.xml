@@ -6,15 +6,15 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="colorControlNormal">#0000ff</item>
-        <item name="colorControlHighlight">#00ff00</item>
-        <item name="colorControlActivated">#ff0000</item>
+        <!--<item name="colorControlNormal">#0000ff</item>-->
+        <!--<item name="colorControlHighlight">#00ff00</item>-->
+        <!--<item name="colorControlActivated">#ff0000</item>-->
         <item name="test_attr">我来自theme中的test_attr</item>
     </style>
 
     <style name="Custom" />
 
-    <style name="Custom.EditText">
+    <style name="Custom.EditText" parent="AppTheme">
         <item name="colorControlNormal">#0000ff</item>
         <item name="colorControlHighlight">#00ff00</item>
         <item name="colorControlActivated">#ff0000</item>
@@ -45,6 +45,7 @@
         <item name="text1">text1-declare in style_attr_defStyleAttr</item>
         <item name="text2">text2-declare in style_attr_defStyleAttr</item>
         <item name="text3">text3-declare in style_attr_defStyleAttr</item>
+        <!--        <item name="text4">text4-declare in style_attr_defStyleAttr</item>-->
     </style>
 
     <!--直接在布局中的style中使用-->
