@@ -3,10 +3,9 @@ package com.lyf.androiddemo.eventdispatch;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.View;
 
-import androidx.appcompat.widget.AppCompatButton;
-
-public class MyButton extends AppCompatButton {
+public class MyButton extends View {
     public MyButton(Context context) {
         super(context);
     }
@@ -20,8 +19,18 @@ public class MyButton extends AppCompatButton {
     }
 
     @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        System.out.println("View 的 dispatchTouchEvent " + event.getAction());
+        return super.dispatchTouchEvent(event);
+//        return true;
+//        return false;
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
-        System.out.println("MyButton的onTouchEvent");
-        return false;
+        System.out.println("View 的 onTouchEvent " + event.getAction());
+//        return super.onTouchEvent(event);
+        return true;
+//        return false;
     }
 }

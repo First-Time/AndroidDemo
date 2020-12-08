@@ -28,8 +28,26 @@ public class MyLinearLayout extends LinearLayout {
     }
 
     @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        System.out.println("ViewGroup 的 dispatchTouchEvent "  + ev.getAction());
+        return super.dispatchTouchEvent(ev);
+//        return true;
+//        return false;
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        System.out.println("ViewGroup 的 onInterceptTouchEvent "  + ev.getAction());
+//        return super.onInterceptTouchEvent(ev);
+        return true;
+//        return false;
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
-        System.out.println("MyLinearLayout的onTouchEvent");
-        return false;
+        System.out.println("ViewGroup 的 onTouchEvent "  + event.getAction());
+//        return super.onTouchEvent(event);
+        return true;
+//        return false;
     }
 }
